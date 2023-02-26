@@ -1,11 +1,8 @@
-// not compleate
-
 #include <stdio.h>
 
 int addition(int num1,int num2);
 int multiplication(int num1,int num2);
-int mySwap(int sum,int product);
-
+void mySwap(int *a,int *b);
 
 void main(){
     
@@ -20,7 +17,11 @@ void main(){
     printf("multiplication of the number 1 and number 2 :- %d \n", product);
     printf("sum of the number 1 and number 2 :- %d \n", sum);
     
+    mySwap(&sum,&product);
     
+    printf("multiplication of the number 1 and number 2 :- %d \n", product);
+    printf("sum of the number 1 and number 2 :- %d \n", sum);
+      
 }
 
 int addition(int num1,int num2){
@@ -33,13 +34,9 @@ int multiplication(int num1,int num2){
     return multiplication1;
 }
 
-int mySwap(int sum,int product){
-    int *pSum = &sum;
-    int *pProduct = &product;
-    
-    printf("multiplication of the number 1 and number 2 :- %d \n", pSum);
-    printf("sum of the number 1 and number 2 :- %d \n", pProduct);
-    
-    return 0;
-    
+void mySwap(int *a,int *b){
+    int T;
+    T = *a;
+    *a = *b;
+    *b = T;
 }

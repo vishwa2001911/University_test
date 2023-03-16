@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill-Zone</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/for_icons.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar"> 
+                <div class="nav-list">
+                    <ul class="nav-list">
+                        <li class="nav-items"><a href="#" class="nav-btn" hidden >Home</a></li>
+                        <li class="nav-items"><a href="movies.html" class="nav-btn">Movies</a></li>
+                        <li class="nav-items"><a href="tv-series.html" class="nav-btn">TV-series</a></li>
+                        <li class="nav-items"><a href="todays_trending.html" class="nav-btn">Trending</a></li>
+                        <li class="nav-items"><a href="about.html" class="nav-btn">about</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="container-main">
+                
+                <div class="main-card">
+                    <div class="text" >
+                        <div class="text-inside">
+                            <h4 style="opacity: 100%; font-size: 25px; margin-bottom: 1px; color: beige;">Movies are the real chill zone in this age of time. </h4>
+                            <h2 style="opacity: 100%; font-size: 50px; margin-top: 0%;">Chill-<strong style="color: #F39C12;">Zone</strong></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="main">
+            <div class="card-container">
+                <div class="card">
+                    <table class="card-table">
+                        <tr>
+                            <th colspan="3" style="font-size: 40px;">
+                                <h3>Explore what's streaming</h3>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="td">
+                                <div class="card-1">
+                                    <a href="movies.html"><img class="card-image" src="images/sss.jpg" width="300px" alt=""></a>
+                                    <div class="card-text">
+                                        <h4>Movie</h4>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td">
+                                <div class="card-1">
+                                    <a href="tv-series.html"><img class="card-image" src="images/witcher.jpg" width="300px"  alt=""></a>
+                                    <div class="card-text">
+                                        <h4>TV-Serise</h4>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td">
+                                <div class="card-1">
+                                    <img class="card-image" src="images/Copyright_free.jpg" width="300px"  alt="">
+                                    <div class="card-text">
+                                        <h4>Today's Trending</h4>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <hr/>
+            <div class="container-about">
+                <table class="table-about" align="center"> 
+                    <tr>
+                        <td class="table-about-td" >
+                            <div class="about-text">
+                                <h3 style="font-size: 40px; font-weight: bold;">Chill- <strong style="color: #F39C12;">Zone</strong></h3>
+                                <p style="font-size: 20px;" >
+                                    Welcome to Chill- <strong style="color: #F39C12;">Zone</strong> , the premier destination for movie, tv-seriea and anime ratings! Our website provides an unbiased <br>  
+                                    and comprehensive look at the latest and greatest films, so you can always make an informed   
+                                    decision before heading to the theater. We review films from every genre, giving you an in-depth look at the plot, acting, directing, and overall entertainment value. Our team of experienced reviewers takes the time to 
+                                    provide a detailed and honest assessment of each show, so you can rely on our ratings when selecting which show to watch. 
+                                </p>
+                            </div>
+                            
+                        </td>
+                        
+                        <td class="table-about-td">  
+                            <div class="about-img">
+                                <img src="images/ss.jpg" style="opacity: 70%;" width="400px" alt="">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+            <div class="container-comment">           
+                <table class="table-comment" id="messageBox">
+                    <form action="#" method="post" id="comment-form" name="comment-form">
+
+                    <tr class="rows">
+                        <td class="td-2">
+                            <label for="form">Contact Us</label>
+                        </td>
+                    </tr>
+                        
+                    <tr >
+                        <td class="td-2">
+                            
+                            <input type="text" class="input" id="name" placeholder="Name" v-model="name">
+                            <label v-if="validate.name" style="font-size: 15px;">*Please input your name</label>
+                        </td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="td-2">
+                            <input type="email" class="input" id="email" placeholder="E-mail" v-model="email">
+                            <label v-if="validate.email" style="font-size: 15px; ;">*Please input your email</label>
+                        </td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="td-2">
+                            <textarea class="comment" rows="5" cols="60" name="text" placeholder="Message.." id="message" v-model="message"></textarea>
+                            <label v-if="validate.message" style="font-size: 15px;">*Please input your massage</label>
+                        </td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="td-2">
+                            <input class="submit" type="button" value="Submit" id="submit" name="submit" @click="validation()">
+                        </td>
+                    </tr>
+                    </form>
+                </table>
+            
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <div class="footer">
+                <div class="footer-down">
+                    <div class="footer-icons">
+                        <ul class="footer-ul">
+                            <li class="icon-li">
+                                <a href="https://web.facebook.com/vishwa.prabhath.54/" class="footer-li-a" target="_blank">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="icon-li">
+                                <a href="https://twitter.com/home" class="footer-li-a" target="_blank">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="icon-li">
+                                <a href="https://github.com/vishwa2001911" class="footer-li-a" target="_blank">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                            </li>
+                            <li class="icon-li">
+                                <a href="https://www.linkedin.com/in/vishwa-prabhath-jayasinghe-b5202615b/" class="footer-li-a" target="_blank">                                    
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-dwn-txt">
+                        <strong style="color: white;">&copy;Copyright. All right</strong> <strong style="color: #F39C12; margin-left: 5px; ">reserved</strong>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="JavaScript/index.js"></script>
+</body>
+</html>

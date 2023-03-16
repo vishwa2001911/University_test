@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill-Zone/Tv-series</title>
+    <link rel="stylesheet" href="CSS/index-page2.css">
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+
+    <link rel="stylesheet" href="CSS/for_icons.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- website Navigation bar-->
+        <div class="header">
+            <div class="navbar"> 
+                <div class="nav-list">
+                    <ul class="nav-list">
+                        <li class="nav-items"><a href="index.html" class="nav-btn" >Home</a></li>
+                        <li class="nav-items"><a href="movies.html" class="nav-btn">Movies</a></li>
+                        <li class="nav-items"><a href="tv-series.html" class="nav-btn">TV-series</a></li>
+                        <li class="nav-items"><a href="anime.html" class="nav-btn">Anime</a></li>
+                        <li class="nav-items"><a href="about.html" class="nav-btn">about</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>    
+
+        <!--Header section-->
+        <div class="main-content">
+            <div class="header-text">
+                <h4 class="text-1" style="font-size: 20px;">Chill-<strong style="color: #F39C12;">Zone</strong> Charts</h4>
+                <h3 class="text-1" style="font-size: 35px;">Chill-<strong style="color: #F39C12;">Zone </strong>Today's Tarending </h4>
+                <h4 class="text-1" style="font-size: 10px; font-weight: 100; margin:0;">Chill-Zone Trending as rated by IMDb Webite</h4>
+            </div>
+            
+        </div>
+    
+        <!--Tv series list area-->
+        <div class="main-content">
+            <ul class="ranking-ul" v-on:change="getAllData()">
+                <li class="ranking-li" v-for="(show, index) in allData.results" :key="index" style="display: flex; justify-content: left;">
+                    <img :src="'https://www.themoviedb.org/t/p/w220_and_h330_face'+show.poster_path" alt="" style="border-radius: 5px;" >
+                    <div class="list-text-box" style="margin: 20px; margin-top: 10px;">
+                    <p >
+                        <strong v-if="show.title != null" class="strong">Title :</strong> {{ show.title}}
+                        <strong v-if="show.name != null" class="strong">Title :</strong> {{ show.name}}
+                        <br> <strong class="strong">Rating:</strong> {{ show.vote_average}} <br>
+                        <strong v-if="show.release_date != null" class="strong">Year and Date:</strong> {{ show.release_date }}
+                        <strong v-if="show.first_air_date != null" class="strong">Year and Date:</strong> {{ show.first_air_date }}<br>
+                        <strong class="strong">Story:</strong> {{ show.overview }} <br>
+                    </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Comment section -->            
+        <hr>
+        <div class="container-comment">           
+            <table class="table-comment">
+                <form action="#" method="post" id="comment-form" name="comment-form">
+
+                <tr class="rows">
+                    <td class="td-2">
+                        <label for="form">Comment</label>
+                    </td>
+                </tr>
+                <tr >
+                    <td class="td-2">
+                        <input type="text" class="input" id="name" placeholder="Name" v-model="commentName">
+                    </td>
+                </tr>
+                <tr class="rows">
+                    <td class="td-2">
+                        <input type="email" class="input" id="email" placeholder="E-mail">
+                    </td>
+                </tr>
+                <tr class="rows">
+                    <td class="td-2">
+                        <textarea class="comment" rows="5" cols="60" name="text" placeholder="Comment.." v-model="commentText" ></textarea>
+                    </td>
+                </tr>
+                <tr class="rows">
+                    <td class="td-2">
+                        <input class="submit" type="button" value="Post Comment" id="submit" name="submit"  @click.prevent="getData()">
+                    </td>
+                </tr>
+                </form>
+            </table>
+            
+
+            <div class="show-comment" align="center">
+                <div class="com-box">
+                    <div class="user-name-icon-comment" id="commentBox" align="left" v-for="(comment, name) in commentData" :key="index">
+                        <i class="fa-solid fa-user" id="user-icon"></i>
+                        <h3 class="user-name">{{name}}</h3>
+                        <p class="user-comment"  id="comentP" >{{comment}}</p>
+                    </div>
+                
+                </div>
+            </div>
+
+            
+        </div >
+        <hr style="margin-top: 30px
+        ;">
+        <!--Footer area-->
+        <footer>
+            <div class="footer">
+                <div class="footer-down">
+                    <div class="footer-icons">
+                        <ul class="footer-ul">
+                            <li class="icon-li">
+                                <a href="https://web.facebook.com/vishwa.prabhath.54/" target="_blank" class="footer-li-a">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="icon-li">
+                                <a href="https://twitter.com/home" target="_blank" class="footer-li-a">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="icon-li">
+                                <a href="https://github.com/vishwa2001911" target="_blank" class="footer-li-a">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                            </li>
+                            <li class="icon-li">
+                                <a href="https://www.linkedin.com/in/vishwa-prabhath-jayasinghe-b5202615b/" target="_blank" class="footer-li-a">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-dwn-txt">
+                        <strong style="color: white;">&copy;Copyright. All right</strong> <strong style="color: #F39C12; margin-left: 5px; ">reserved</strong>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+
+                    commentData:{},
+                    commentName:'',
+                    commentText:'',
+                    allData:{},
+                    url:"https://api.themoviedb.org/3/trending/all/day?api_key=621ceb5bfc8d936080c6993d5052013f&language"
+                }
+            },
+            methods:{
+
+                getData(){
+                    this.commentData[this.commentName]=this.commentText;
+                    console.log(this.commentData);
+                },
+                // only for get data using TMDB api 
+               getAllData(){  
+                    fetch(this.url,this.requestOptions)
+                        .then(response => response.json())
+                        .then(result => this.allData =  result)
+                        .catch(error => console.log('error', error))                          
+                }, 
+                
+            },
+            beforeMount() {
+                this.getAllData()
+            },
+               
+        }).mount("body") 
+            
+    </script>
+</body>
+</html>
